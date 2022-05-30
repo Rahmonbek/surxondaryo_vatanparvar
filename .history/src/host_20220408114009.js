@@ -1,9 +1,0 @@
-export const url="https://surxondaryo.vatanparvar.uz/Files/News"
-export const urlV="https://vatanparvar.uz/Files/News"
-export const api="https://surxondaryo.vatanparvar.uz/"
-export const urlFoto="https://surxondaryo.vatanparvar.uz/Files/Photogallery"
-export const urlStat="https://surxondaryo.vatanparvar.uz/Files/StatisticElements"
-export const urlPer="https://surxondaryo.vatanparvar.uz/Files/Personal"
-export const region=9
-export const regionI=1718
-export const urlImg="https://kadr.vatanparvar.uz/img/personal/"
