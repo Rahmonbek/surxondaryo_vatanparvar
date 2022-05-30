@@ -1,18 +1,6 @@
 import React from "react";
 import { PageTitle } from "../../ui/PageTitle";
-import img1 from "./assets/1.jpg";
-import img2 from "./assets/2.jpg";
-import img4 from "./assets/4.jpg";
-import img3 from "./assets/4.jpg";
-import img5 from "./assets/5.jpg";
-import img6 from "./assets/6.jpg";
-import img7 from "./assets/7.jpg";
-import img8 from "./assets/8.jpg";
-import img9 from "./assets/9.jpg";
-import img10 from "./assets/10.jpg";
-import img11 from "./assets/11.jpg";
-import img12 from "./assets/12.jpg";
-import logo from './assets/logo.gif'
+
 
   import { useEffect, useState } from "react";
   import { Image } from 'antd';
@@ -21,8 +9,8 @@ import "./assets/fotogalereriya.scss";
 
 import { useTranslation } from 'react-i18next';
 import http from "../../ui/Services";
-import { ContactsOutlined } from "@ant-design/icons";
-import { region, urlFoto } from "../../../host";
+import { api, region, urlFoto } from "../../../host";
+import axios from "axios";
 function PhotoGallery() {
   const {t, i18n} = useTranslation();
   const [loader, setLoader] = useState(true)
@@ -32,8 +20,8 @@ function PhotoGallery() {
   const [data4, setData4] = useState<any>(null)
  
 
-useEffect(()=>{
-	http.get<any>(`GetApi/GetPhotogalleryImages/?RegionId=${region}/`).then((res) => {
+  useEffect(()=>{
+	axios.get(`${api}GetApi/GetPhotogalleryImages/?regionId=${region}`).then((res) => {
 		var length=Math.ceil(res.data.length/4)
 		 setData1(res.data.slice(0, length));
 	
@@ -45,13 +33,12 @@ useEffect(()=>{
 	.catch(e => console.log(e))
 }, [])
 
-
   return (
 	<Image.PreviewGroup>
     <div className="fotogalereya">
 	{loader?<div className="loader">
             <div className="bef">
-      <img src={logo} alt="..."/>
+      <img src="https://vatanparvar.uz/Files/images/logo.gif" alt="..."/>
       </div>
    </div>
         :''}
